@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Century Rides</h1>
+
+<p>
+  Liverpool Century is Liverpool's premier cycling club, and Century rides
+  is the place where our rides are advertised.
+</p>
+<p>
+  <a href="{% url 'rides' %}" class="btn btn-secondary">See Rides</a>
+</p>
+<br/>
+<p>
+  For more information on the cluib and joining, see our website at 
+  <a href="https://liverpoolcentury.com/">https://liverpoolcentury.com</a>
+</p>
+<br/>
+<br/>
+<h3 class="snap-head">Ride Grades</h3>
+<p><strong>We host a range of regular rides throughout the year that can depend on the season.</strong></p>
+<p>In an attempt to classify these so that people can go on the appropriate ride we have a grading system.</p>
+<p>
+  <strong>Grade 1</strong>: Shorter, flatter routes for those new to cycling<br/>
+  <strong>Grade 2</strong>: Often rolling with some challenges, should be appropriate for those who have previously done some cycling.<br/>
+  <strong>Grade 3</strong>: Consistent pace (16mph+) with some hills, appropriate for those who have are more experienced.<br/>
+  <strong>Grade 4</strong>: Longer hillier rides for regular experienced cyclists (16mph+ up to 100miles).<br/>
+  <strong>Grade 5</strong>: Fast race-type rides. These are no-wait rides so riders will have to fend for themselves if dropped.
+</p>
+
+<h3>Ride Rules</h3>
+<ul>
+  <li>Riders are expected to use a road worthy bike</li>
+  <li>Wear suitable clothing for the weather</li>
+  <li>Bring a phone and take some numbers from your companions</li>
+  <li>Bring an inner tube and equipment needed to repair a flat tyre (tyre levers, mini tool, pump)</li>
+  <li>Respect your fellow riders and listen to experienced riders when they provide advice</li>
+  <li>If you move ahead of the bunch on a climb or get separated, wait for the group</li>
+  <li>On 'no-drop' rides please regroup after each significant hill.</li>
+<ul>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Ride - {{ ride.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ ride.name }}</h1>
+<br/>
+<h3>{{ ride.date|date:'D j M' }}</h3>
+<p>Ride Leader: {{ ride.leader.first_name }} {{ ride.leader.last_name }}</p>
+
+<hr>
+
+<div class="ex2" >
+<table class="table table-striped table-bordered">
+    <tbody>
+      <tr>
+        <td>Grade</td>
+        <td>{{ ride.grade }}</td>
+      </tr>
+      <tr>
+        <td>Distance</td>
+        <td>{{ ride.distance }} miles</td>
+      </tr>
+      <tr>
+        <td>Speed</td>
+        <td>{{ ride.speed_mph }} mph</td>
+      </tr>
+      <tr>
+        <td>Start Time</td>
+        <td>{{ ride.time }}</td>
+      </tr>
+      <tr>
+        <td>Meeting Point</td>
+        <td>{{ ride.location }}</td>
+      </tr>
+      <tr>
+        <td>Cafe Stop</td>
+        <td>{{ ride.cafe_stop|yesno:'Yes,No' }}</td>
+      </tr>
+      <tr>
+        <td>Drop Ride</td>
+        <td>{{ ride.drop_ride|yesno:'Yes,No' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<br/> 
+<p>{{ ride.text }}</p>
+
+<br/>
+<br/>
+<br/>
+<a href="{% url 'rides' %}" class="btn btn-secondary">Back</a>
+<a href="{% url 'update-ride' ride.pk %}" class="btn btn-warning">Update</a>
+<a href="{% url 'copy-ride' ride.pk %}" class="btn btn-info">Copy</a>
+<br/>
+<br/>
+<a href="{% url 'delete-ride' ride.pk %}" class="btn btn-danger">Delete</a>
+{% endblock %}

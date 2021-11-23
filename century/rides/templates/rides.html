@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Upcoming Rides</h1>
+
+
+<table class="table table-striped" class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Ride</th>
+        <th scope="col">Grade</th>
+        <th scope="col">Leader</th>
+        <th scope="col">Distance</th>
+        <th scope="col">Average Speed</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for ride in object_list %}
+      <tr>
+        <td>{{ ride.date|date:'D d M' }}</td>
+        <td><a href="{% url 'ride-details' ride.pk %}">{{ ride.name }}</a></td>
+        <td>{{ ride.grade }}</td>
+        <td>{{ ride.leader.first_name }} {{ ride.leader.last_name }}</td>
+        <td>{{ ride.distance }} miles </td>
+        <td>{{ ride.speed_mph }} mph</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

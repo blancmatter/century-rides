@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Update ride{% endblock %}
+
+{% block content %}
+
+<h1>Delete Ride</h1>
+<br/><br/>
+<h3>Delete: {{ ride.name }}</h3>
+
+<div class='form-group'>
+<form method='POST'>
+    {% csrf_token %}
+    <strong>Are you sure you want to delete the ride?</strong>
+    <button class="btn btn-primary">Delete Ride</button>
+</form>
+</div>
+
+{% endblock %}
