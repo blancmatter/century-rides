@@ -3,16 +3,24 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <h1>Delete Ride</h1>
 <br/><br/>
 <h3>Delete: {{ ride.name }}</h3>
-
+<br/>
 <div class='form-group'>
 <form method='POST'>
     {% csrf_token %}
     <strong>Are you sure you want to delete the ride?</strong>
-    <button class="btn btn-primary">Delete Ride</button>
+    <br/><br/>
+    <a href="{% url 'ride-details' ride.pk %}" class="btn btn-secondary">Back</a>
+    <button class="btn btn-danger">Delete Ride</button>
 </form>
 </div>
+
+{% else %}
+  <h1>NOT AUTHORISED</h1>
+{% endif %}
+
 
 {% endblock %}

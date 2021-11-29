@@ -1,4 +1,6 @@
 from django import forms
+from django.http import HttpRequest
+from django.contrib.auth.models import User
 from .models import Ride
 
 class DateInput(forms.DateInput):
@@ -10,6 +12,7 @@ class TimeInput(forms.TimeInput):
 class RideForm(forms.ModelForm):
     class Meta:
         model = Ride
+        request = HttpRequest()
         fields = (
             'name', 
             'leader', 

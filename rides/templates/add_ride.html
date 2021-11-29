@@ -3,6 +3,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <h1>Add Ride</h1>
 <br/><br/>
 <div class='form-group'>
@@ -12,5 +13,9 @@
     <button class="btn btn-primary">Submit</button>
 </form>
 </div>
+
+{% else %}
+  <h1>NOT AUTHORISED</h1>
+{% endif %}
 
 {% endblock %}

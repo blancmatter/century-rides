@@ -4,8 +4,6 @@ from django.urls import reverse
 from datetime import datetime, date
 
 
-RIDE_GRADEs = []
-
 class Ride(models.Model):
 
     class RideGrade(models.TextChoices):

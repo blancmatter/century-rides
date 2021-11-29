@@ -39,17 +39,31 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'rides' %}">Rides</a>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'add-ride' %}">Add Ride</a>
+              <li class="nav-item px-2">
+                <a class="nav-link active btn btn-secondary btn-small navbar-btn" aria-current="page" href="{% url 'rides' %}">Rides</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
+              {% if user.is_authenticated %}
+                <li class="nav-item px-2">
+                  <a class="nav-link active btn btn-primary btn-small navbar-btn" aria-current="page" href="{% url 'add-ride' %}">Add Ride</a>
+                </li>
+              {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                {% if user.is_authenticated %}
+                  <li class="nav-item px-4">
+                    <a class="nav-link active btn btn-secondary" aria-current="page" href="{% url 'logout' %}">Logout</a>
+                  </li>
+                {% else %}
+                  <li class="nav-item px-4">
+                    <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
+                  </li>
+                  <li class="nav-item px-4">
+                    <a class="nav-link active btn btn-primary" aria-current="page" href="{% url 'login' %}">Login</a>
+                  </li>
+                {% endif %}
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-              </li>
+            </ul>
             </ul>
           </div>
         </div>
