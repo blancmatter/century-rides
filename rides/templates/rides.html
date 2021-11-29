@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-    {% for ride in object_list %}
+    {% for ride in rides %}
       <tr>
         <td>{{ ride.date|date:'D d M' }}</td>
         <td><a href="{% url 'ride-details' ride.pk %}">{{ ride.name }}</a></td>

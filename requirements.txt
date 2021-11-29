@@ -1,3 +1,7 @@
+# Note that on Ubuntu / Dbian systems you need
+# sudo apt install python3-dev 
+# package to compile the pscopg2-binary package 
+psycopg2-binary
 django
 django-on-heroku
 gunicorn

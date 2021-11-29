@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Ride
 from .forms import RideForm, UpdateForm
 from django.urls import reverse_lazy
+from datetime import date, timedelta
 
 # Create your views here.
 #def home(request):
@@ -12,14 +13,24 @@ class HomeView(ListView):
     model = Ride
     template_name = 'home.html'
 
+
 class RidesView(ListView):
     model = Ride
     template_name = 'rides.html'
     ordering = ['date', 'grade']
+    startdate = date.today()
+    rides = Ride.objects.filter(date__gte=startdate)
+    
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context.update({'rides': self.rides})
+        return context
+
 
 class RideDetailView(DetailView):
     model = Ride
     template_name = 'ride_details.html'
+
 
 class AddRideView(CreateView):
     model = Ride
@@ -29,6 +40,7 @@ class AddRideView(CreateView):
     # fields = '__all__'
     # Or you could have add then individually as a tuple
     # fields = ('name', 'distance')
+
 
 class UpdateRideView(UpdateView):
     model = Ride
