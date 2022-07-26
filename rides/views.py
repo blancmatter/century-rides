@@ -18,12 +18,12 @@ class RidesView(ListView):
     model = Ride
     template_name = 'rides.html'
     ordering = ['date', 'grade']
-    startdate = date.today()
-    rides = Ride.objects.filter(date__gte=startdate)
     
     def get_context_data(self, **kwargs):
+        startdate = date.today()
+        rides = Ride.objects.filter(date__gte=startdate)
         context = super(ListView, self).get_context_data(**kwargs)
-        context.update({'rides': self.rides})
+        context.update({'rides': rides})
         return context
 
 
